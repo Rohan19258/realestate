@@ -1,0 +1,26 @@
+.head-main{
+    width: 80%;
+    height: 15%;
+    background-color:  #F5F5F5;
+    display: flex;
+    align-items: center;
+    border-bottom: 6px solid #E1F9F4;
+}
+.head-main>p{
+    padding-left: 5%;
+    color:#B4B4C6 ;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Source Sans Pro;
+}
+.head-user{
+    padding-left: 60%;
+}
+.head-select{
+    border:  #F5F5F5 1px solid;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: Source Sans Pro;
+    color: #A6A6A6;
+    background-color:  #F5F5F5;
+}
