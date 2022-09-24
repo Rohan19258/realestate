@@ -1,24 +1,42 @@
 const express=require('express');
+const sceretKey="abcdefghijk";
 const router = require('express').Router();
+const jwt= require('jsonwebtoken');
 const cors=require('cors');
 router.use(express.json());
 router.use(cors());
-
+const auth=require('../middleware/auth');
 const User=require('../models/registerSchema');
 
+//generate token
+// const createtoken=async()=>{
+//     const token=await jwt.sign({_id:"6329a65ea5274f54d2f6e9d8"},"secretkey123");
+//     console.log(token);
+//     const userVerify=jwt.verify(token,"secretkey123");
+//     console.log(userVerify);
+// }
+// createtoken();
 //login user....
-router.post("/login",(req,res)=>{
+router.post("/login",async (req,res)=>{
+
     const {email,password}=req.body;
     User.findOne({email:email},(err,user)=>{
         if(user){
-            if(password=== user.password){
+            if(password === user.password){
+                const token = jwt.sign(
+                    {
+                      exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                      user: user._id,
+                    } , sceretKey
+                  );
                 res.send({
                     message:"login successfull",
-                    user:user
+                    user:user,
+                    token:token
                 })
             }
             else{
-                res.send({message: "password wrong"})
+                res.send({message: "check userId or password"})
             }
             
         }else{
@@ -32,7 +50,7 @@ router.post("/login",(req,res)=>{
 router.post("/register", (req,res)=>{
     console.log(req.body);
     const {email,password}=req.body;
-    User.findOne({email:email},(err,user)=>{
+    User.findOne({email:email}, async(err,user)=>{
         if(user){
             res.send({message:"user already registered"})
         }else{
@@ -40,7 +58,8 @@ router.post("/register", (req,res)=>{
                 email:email,
                 password:password
             })
-            user.save(
+            console.log(`the success part ${user}`);
+             await user.save(
                 err=>{
                     if(err){
                         res.send(err);

@@ -6,8 +6,9 @@ app.use(cors());
 const port=process.env.PORT || 5000;
 require('./database/connection');
 const logRouter = require("./routers/log-reg")
-
+const form=require("./routers/form");
 app.use('/', logRouter);
+app.use('/',form);
 app.listen(port,()=>{
     console.log("server is connected at "+port)
 })
