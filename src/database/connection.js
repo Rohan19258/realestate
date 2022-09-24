@@ -1,5 +1,12 @@
-const mongoose=require('mongoose');
+const mongoose =require("mongoose")
 
-mongoose.connect("mongodb+srv://mongo:CKoVoFrKg0mAcI9E@cluster0.sni6euq.mongodb.net/real-estate?retryWrites=true&w=majority")
-.then(()=>{console.log("connected to database")})
-.catch((e)=>{console.log(e)})
+const DB="mongodb+srv://1234:feeditnot@cluster0.ihvrjfh.mongodb.net/?retryWrites=true&w=majority"
+
+const connection=mongoose.connect(DB,{useNewUrlParser:true,useUnifiedTopology: true}).then(()=>{
+    console.log("connection successful")
+}).catch((e)=>{
+console.log(e.message)
+})
+
+
+module.exports=connection
