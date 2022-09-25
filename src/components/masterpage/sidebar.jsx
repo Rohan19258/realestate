@@ -2,7 +2,7 @@ import "./sidebar.css";
 const SideBar=()=>{
     return(
         <>
-        <div className="side-menu">
+        
             <p className="side-logo">LOGO</p>
             <div className="side-inside"> 
             <div className="side-list">
@@ -46,7 +46,7 @@ const SideBar=()=>{
 
             </div>
             
-        </div>
+        
         </>
     )
 }

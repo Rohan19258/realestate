@@ -1,70 +1,64 @@
-//import './from.css'
+import "./form.css"
+const Form1 = ({formData,setFormData}) => {
+        
+        return (
+                <>
+                        <form id="f1" method="POST">
+                                <div id="f1-table">
+                                        <div className="f1-content">
+                                                <label >Property Type</label>
+                                                <select  name="property" value={formData.property}  onChange={e=>setFormData({...formData, property:e.target.value})} required>
+                                                        <option>Select Property Type</option>
+                                                        <option name="House" value="House">House</option>
+                                                        <option name="Flat" value="Flat">Flat</option>
 
-const Form1 = () => {
-    return (
-        <>
-            <div className="card">
-                <form>
-                    <div className="form-box">
-                    <div className="form-block">
-                    <label for="property">Property Type</label>
-                    <select name="property-type">
-                            <option>Select Property Type</option>
-                            <option value="residential">Residential</option>
-                            <option value="Comercial">Comercial</option>
-                            <option value="industrial">Industrial</option>
-                    </select>
-                    <label for="property">Property Age</label>
-                    <input value="price" placeholder="Example: 10000"/>
-                    <label for="property">Property Age</label>
-                    <select name="property-type">
-                            <option>Select Property Age</option>
-                            <option value="residential">Early</option>
-                            <option value="Comercial">Median</option>
-                            <option value="industrial">Mode</option>
-                    </select>
-                    <label for="property">Property Description</label>
-                    <input value="description"/>
-                    </div>
-                    <div className="form-block">
-                    <label for="property">Negotable</label>
-                    <select name="property-type" >
-                            <option>Select Negotable</option>
-                            <option value="residential">Early</option>
-                            <option value="Comercial">Median</option>
-                            <option value="industrial">Mode</option>
-                    </select>
-                    <label for="property">Ownership</label>
-                    <select name="property-type" >
-                            <option>Select Ownership</option>
-                            <option value="residential">Early</option>
-                            <option value="Comercial">Median</option>
-                            <option value="industrial">Mode</option>
-                    </select>
-                    <label for="property">Property Approved</label>
-                    <select name="property-type" >
-                            <option>Property Approved</option>
-                            <option value="residential">Early</option>
-                            <option value="Comercial">Median</option>
-                            <option value="industrial">Mode</option>
-                    </select>
-                    <label for="property">Bank Loan</label>
-                    <select name="property-type" >
-                            <option>Bank Loan</option>
-                            <option value="residential">Early</option>
-                            <option value="Comercial">Median</option>
-                            <option value="industrial">Mode</option>
-                    </select>
-                    </div>
-                    </div>
-                    <div>
-                    <button className='btn1'>Cancel</button>
-                    <button className='btn2'>Save & Continue</button>
-                    </div>
-                </form>
-            </div>
-        </>
-    );
+                                                </select>
+                                                <label >Property Age</label>
+                                                <input  />
+                                                <label >Property Age</label>
+                                                <select name="property-age">
+                                                        <option>Select Property Age</option>
+                                                        <option value="5-10">5-10</option>
+                                                        <option value="10-20">10-20</option>
+                                                        <option value="20-30">more than 20</option>
+                                                </select>
+                                                <label >Property Description</label>
+                                                <input  />
+                                        </div>
+                                        <div className="f1-content">
+                                       
+                                                <label >Negotable</label>
+                                                <select name="Negotable" >
+                                                        <option>Select Negotable</option>
+                                                        <option value="True">True</option>
+                                                        <option value="False">False</option>
+                                                </select>
+                                                <label >Ownership</label>
+                                                <select name="Owner" >
+                                                        <option>Select Ownership</option>
+                                                        <option value="individual">individual</option>
+                                                        <option value="Joint">Joint</option>
+                                                        
+                                                </select>
+                                                <label >Property Approved</label>
+                                                <select name="property-type" >
+                                                        <option>Property Approved</option>
+                                                        <option value="residential">Early</option>
+                                                        <option value="Comercial">Median</option>
+                                                        <option value="industrial">Mode</option>
+                                                </select>
+                                                <label >Bank Loan</label>
+                                                <select name="property-type" >
+                                                        <option>Bank Loan</option>
+                                                        <option value="Home">Home Loan</option>
+                                                        <option value="person">Personal loan</option>
+                                                </select>
+                                                </div>
+                                        </div>
+                        </form>
+
+                </>
+        );
 
 }
 export default Form1;

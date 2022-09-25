@@ -5,12 +5,19 @@ import { useNavigate } from 'react-router-dom';
 const Login=()=>{
     const navigate=useNavigate();
     const [user, setUser]=useState({});
-    
-    const login =()=>{
-        axios.post("http://localhost:5000/login",user)
+    const login =(e)=>{
+        e.preventDefault();
+        axios.post("https://realrohan.herokuapp.com/login",user)
         .then(res=>{
+            const temp=(res.data.user.email).split("@");
+            const name=temp[0];
+            
+            localStorage.setItem("username",name)
             alert(res.data.message)
-            navigate('/home')
+            if(res.status===200){
+                 navigate("/desk1")
+            } 
+         localStorage.setItem("userInfo",res.data.token);
         })
     }
     return(

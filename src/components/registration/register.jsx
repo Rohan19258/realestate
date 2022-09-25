@@ -1,14 +1,24 @@
 import './login.css';
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 const Register=()=>{
+    const navigator=useNavigate();
     const [user, setUser]=useState({});
-    const register=()=>{
+    const register=(e)=>{
+        e.preventDefault()
         const {email,password,cpassword}=user;
         if(email && password && password===cpassword){
            // alert("posted")
-            axios.post("http://localhost:5000/register",user)
-            .then(res=>alert(res.data.message))
+            axios.post("https://realrohan.herokuapp.com/register",user)
+            .then(res=>{
+                // console.log(res.status)
+                alert(res.data.message)
+                if(res.status===200){
+                    // console.log("hiiiiihii")
+                     navigator("/")
+                } 
+            })
         }
         else{
             alert("invalid input")

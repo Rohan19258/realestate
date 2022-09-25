@@ -1,12 +1,4 @@
-.side-menu{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    background-color: #E1F9F4;
-}
+
 .side-logo{
     color:#1A1B1C;
     padding-top: 20%;

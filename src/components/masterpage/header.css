@@ -1,12 +1,5 @@
-.head-main{
-    width: 80%;
-    height: 15%;
-    background-color:  #F5F5F5;
-    display: flex;
-    align-items: center;
-    border-bottom: 6px solid #E1F9F4;
-}
-.head-main>p{
+
+.home-head>p{
     padding-left: 5%;
     color:#B4B4C6 ;
     font-size: 20px;
